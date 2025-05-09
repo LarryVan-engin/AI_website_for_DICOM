@@ -1,0 +1,44 @@
+{% extends 'pages/base.html' %}
+{% block page2content %}
+
+<div class="upload-container">
+    <h2>Upload DICOM File</h2>
+
+    {% if mask_url %}
+        <div class="result">
+            <p><strong>Mask đã được tạo!</strong></p>
+            <img src="{{ mask_url }}" alt="Generated Mask">
+        </div>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" required>
+        <input type="submit" value="Upload">
+    </form>
+</div>
+
+<style>
+    .upload-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .result {
+        margin-top: 15px;
+    }
+    img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+{% endblock %}

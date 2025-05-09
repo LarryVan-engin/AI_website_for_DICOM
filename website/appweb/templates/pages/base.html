@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="AI-powered tools for DICOM image analysis and segmentation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="{% static 'decor/css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'decor/css/owl.carousel.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'decor/css/all.min.css' %}" rel="stylesheet" />
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="{% static 'decor/js/owl.carousel.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <script src="{% static 'decor/js/myscript.js' %}"></script>
+  <script src="{% static 'decor/js/all.min.js' %}"></script>
+  <script src="{% static 'decor/js/s3.js' %}"></script>
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <!-- Header menu -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'decor/images/logo1.png' %}" width="80" height="80"/> AI FOR DICOM
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'ai_create_mask' %}">AI Create Mask</a></li>
+              <li><a class="dropdown-item" href="{% url 'ai_segment_dicom' %}">AI Segment DICOM</a></li>
+              <li><a class="dropdown-item" href="{% url 'ai_analyze_header' %}">AI Analyze Header DICOM</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Introduce</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Contact</a>
+          </li>
+       
+        </ul>
+        
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <ul>
+        <ul class="navbar-nav nav-right ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">USER</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">User's Profiles</a></li>
+              <li><a class="dropdown-item" href="#">Manage Account</a></li>
+              <li><a class="dropdown-item" href="#">Sign Up</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Report</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign In</a>
+          </li>
+        </ul>
+        </ul>  
+        </div>
+    </div>
+  </nav>
+  <!-- Main -->
+  {% block banner_slide %}{% endblock banner_slide %}
+  {% block content %}{% endblock content %}
+  {% block page2content %} {% endblock page2content %}
+  <!-- Footer -->
+  <footer class="container-fluid custom-footer-bg text-center fixed-bottom p-1 mt-5">
+    Created in 2025 by Larry
+  </footer>
+  
+</body>
+</html>
